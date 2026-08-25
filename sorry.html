@@ -1,54 +1,426 @@
-<html lang="zh-CN">
+<!DOCTYPE html>
+<html lang="en">
+
 <head>
-<meta charset="utf-8">
-<title>在线sorry生成器 gif生成</title>
-<meta name="keywords" content="sorry生成器 gif生成 gif 有钱是真的可以为所欲为 为所欲为gif">
-<meta name="description" content="输入台词生成“有钱就可以为所欲为”的gif">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no" />
-<style>
-	.line{ width:250px;}
-	span { color:gray; }
-	p{margin:5px;}
-</style>
+    <meta charset="UTF-8">
+
+    <title>I'm Sorry ❤️</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            background:
+                linear-gradient(
+                    rgba(255, 210, 220, 0.75),
+                    rgba(255, 235, 240, 0.85)
+                ),
+                url("https://images.unsplash.com/photo-1518199266791-5375a83190b7?auto=format&fit=crop&w=2000&q=80");
+
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+
+            color: #5a3d43;
+        }
+
+
+        /* Main card */
+
+        .container {
+            width: 100%;
+            max-width: 600px;
+
+            background: rgba(255, 255, 255, 0.90);
+
+            backdrop-filter: blur(10px);
+
+            border-radius: 25px;
+
+            padding: 45px 40px;
+
+            box-shadow:
+                0 15px 40px rgba(120, 50, 70, 0.20);
+
+            text-align: center;
+        }
+
+
+        /* Heart */
+
+        .heart {
+            font-size: 55px;
+
+            animation: heartbeat 1.5s infinite;
+
+            margin-bottom: 5px;
+        }
+
+
+        @keyframes heartbeat {
+
+            0% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(1.15);
+            }
+
+            40% {
+                transform: scale(1);
+            }
+
+            60% {
+                transform: scale(1.15);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+
+        }
+
+
+        /* Title */
+
+        h1 {
+            margin: 0;
+
+            font-size: 42px;
+
+            color: #d94f70;
+        }
+
+
+        .subtitle {
+            margin-top: 10px;
+
+            font-size: 17px;
+
+            color: #85636b;
+        }
+
+
+        /* Apology */
+
+        .apology {
+            margin-top: 35px;
+
+            font-size: 18px;
+
+            line-height: 1.8;
+
+            color: #654850;
+        }
+
+
+        .apology p {
+            margin: 15px 0;
+        }
+
+
+        .highlight {
+            color: #d94f70;
+
+            font-weight: bold;
+
+            font-size: 20px;
+        }
+
+
+        /* Button */
+
+        .button {
+            margin-top: 25px;
+
+            padding: 14px 30px;
+
+            border: none;
+
+            border-radius: 30px;
+
+            background: #d94f70;
+
+            color: white;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .button:hover {
+            background: #c63d5e;
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 8px 20px rgba(217, 79, 112, 0.3);
+        }
+
+
+        /* Hidden message */
+
+        #hiddenMessage {
+            display: none;
+
+            margin-top: 25px;
+
+            padding: 20px;
+
+            background: #fff0f4;
+
+            border-radius: 15px;
+
+            color: #704c55;
+
+            font-size: 17px;
+
+            line-height: 1.7;
+
+            animation: fadeIn 1s;
+        }
+
+
+        @keyframes fadeIn {
+
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
+        }
+
+
+        /* Footer */
+
+        .footer {
+            margin-top: 30px;
+
+            font-size: 13px;
+
+            color: #9a777f;
+        }
+
+
+        /* Floating hearts */
+
+        .floating-heart {
+            position: fixed;
+
+            bottom: -50px;
+
+            font-size: 25px;
+
+            animation: floatUp 8s linear infinite;
+
+            opacity: 0.5;
+
+            pointer-events: none;
+        }
+
+
+        .heart1 {
+            left: 10%;
+            animation-delay: 1s;
+        }
+
+        .heart2 {
+            left: 30%;
+            animation-delay: 4s;
+        }
+
+        .heart3 {
+            left: 70%;
+            animation-delay: 2s;
+        }
+
+        .heart4 {
+            left: 90%;
+            animation-delay: 5s;
+        }
+
+
+        @keyframes floatUp {
+
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0;
+            }
+
+            20% {
+                opacity: 0.6;
+            }
+
+            100% {
+                transform: translateY(-110vh) rotate(30deg);
+                opacity: 0;
+            }
+
+        }
+
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            .container {
+                padding: 35px 25px;
+            }
+
+            h1 {
+                font-size: 34px;
+            }
+
+            .apology {
+                font-size: 16px;
+            }
+
+        }
+
+    </style>
+
 </head>
+
+
 <body>
-<div id="images" style="display:none;"></div>
-<div id = "canvases" style="display:none;"></div>
-<h3 style="margin-bottom:0">输入台词生成gif</h3>
---------------------------------------------------<br/>
-<a href = "javascript:void(0);" title="sorry生成器 gif生成 gif 有钱是真的可以为所欲为 为所欲为gif" onclick="fill()">填入原词</a>&nbsp;
-<a href = "javascript:void(0);" title="sorry生成器 gif生成 gif 有钱是真的可以为所欲为 为所欲为gif" onclick="empty()">清空</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<a target="_Blank" href = "https://github.com/wwuddan123/sorry" onclick="empty()">github</a>
-<div>
-	第1句<input type="text" id = "line1" class = "line" placeholder="" autofocus/><br/>
-	第2句<input type="text" id = "line2" class = "line" placeholder=""/><br/>
-	第3句<input type="text" id = "line3" class = "line" placeholder=""/><br/>
-	第4句<input type="text" id = "line4" class = "line" placeholder=""/><br/>
-	第5句<input type="text" id = "line5" class = "line" placeholder=""/><br/>
-	第6句<input type="text" id = "line6" class = "line" placeholder=""/><br/>
-	第7句<input type="text" id = "line7" class = "line" placeholder=""/><br/>
-	第8句<input type="text" id = "line8" class = "line" placeholder=""/>
+
+
+<!-- Floating hearts -->
+
+<div class="floating-heart heart1">❤️</div>
+<div class="floating-heart heart2">💕</div>
+<div class="floating-heart heart3">💗</div>
+<div class="floating-heart heart4">❤️</div>
+
+
+<!-- Main website -->
+
+<div class="container">
+
+    <div class="heart">
+        ❤️
+    </div>
+
+
+    <h1>
+        I'm Sorry, Ainsyah
+    </h1>
+
+
+    <div class="subtitle">
+        A little message from my heart to yours.
+    </div>
+
+
+    <div class="apology">
+
+        <p>
+            I know I made a mistake.
+        </p>
+
+        <p>
+            I'm truly sorry for hurting you.
+        </p>
+
+        <p>
+            I never meant to make you feel bad
+            or make you question how much you mean to me.
+        </p>
+
+        <p class="highlight">
+            You mean so much to me. ❤️
+        </p>
+
+        <p>
+            I'm sorry, and I hope you can forgive me.
+        </p>
+
+    </div>
+
+
+    <button
+        class="button"
+        onclick="showMessage()">
+
+        Click here ❤️
+
+    </button>
+
+
+    <div id="hiddenMessage">
+
+        I don't expect everything to be okay immediately.
+
+        I just want you to know that I am genuinely sorry,
+        and I will try to be better.
+
+        <br><br>
+
+        <strong>
+            I love you. ❤️
+        </strong>
+
+    </div>
+
+
+    <div class="footer">
+
+        Made with love, just to say I'm sorry. ❤️
+
+    </div>
+
 </div>
---------------------------------------------------<br/>
-文字颜色:
-<table>
-	<tr>
-		<td>
-			<p>红:<span>0</span><input type="range" id="red" min="0" max="255" value="255" onchange="changeColor();" /><span>255</span></p>
-			<p>绿:<span>0</span><input type="range" id="green" min="0" max="255" value="255" onchange="changeColor();" /><span>255</span></p>
-			<p>蓝:<span>0</span><input type="range" id="blue" min="0" max="255" value="255" onchange="changeColor();" /><span>255</span></p>
-		</td>
-		<td>
-			<canvas id='c_color' style='display:block;width:100px;height:100px;border:1px solid #d3d3d3;'></canvas>
-		</td>
-	</tr>
-</table>
---------------------------------------------------<br/>
-<div>
-	<button id="btn_create" disabled="true" onclick="create()" >生成GIF</button><label id = "tips" ></label><a id="download" href="javascript:void(0);" onclick="down()"></a><br/>
-	<img id="result"><br/>
-</div>
-<script src="./gif.js"></script>
-<script src="./sorry.js"></script>
+
+
+<script>
+
+function showMessage() {
+
+    const message =
+        document.getElementById("hiddenMessage");
+
+    if (message.style.display === "block") {
+
+        message.style.display = "none";
+
+    } else {
+
+        message.style.display = "block";
+
+    }
+
+}
+
+</script>
+
+
 </body>
+
 </html>
